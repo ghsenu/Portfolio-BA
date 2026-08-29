@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hotel Booking System — BA Case Study · Gihansa Buwanayake</title>
+<meta name="description" content="Business analysis case study: requirements, process mapping, user stories and use cases for an online hotel booking platform." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230C1E38'/><text x='50' y='68' font-size='54' text-anchor='middle' fill='%2310B7A6' font-family='monospace' font-weight='700'>G</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<nav class="nav" id="nav">
+  <a href="index.html#top" class="brand"><span class="dot"></span>Gihansa<span style="color:var(--teal-dk)">.</span></a>
+  <div class="navlinks" id="navlinks">
+    <a href="index.html#about">About</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="index.html#services">What I Do</a>
+    <a href="index.html#work">Case Studies</a>
+    <a href="index.html#contact" class="nav-cta">Let's talk</a>
+  </div>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<header class="hero case-hero dark" id="top">
+  <div class="wrap">
+    <a href="index.html#work" class="back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+      Back to case studies
+    </a>
+    <span class="eyebrow reveal in">Business Analysis · Case Study</span>
+    <h1 class="reveal in d1">Hotel Booking System</h1>
+    <p class="lead reveal in d2">A regional hotel relies on phone and walk-in bookings, causing double-bookings and lost revenue. This case study frames the business problem, maps the as-is and to-be processes, and documents the requirements needed to launch an online booking platform.</p>
+    <div class="case-meta reveal in d3">
+      <span>Requirements</span>
+      <span>BPMN / Process</span>
+      <span>User Stories</span>
+      <span>Use Cases</span>
+      <span>KPIs</span>
+    </div>
+  </div>
+</header>
+
+<section class="section case-body">
+  <div class="wrap case-grid">
+    <div>
+      <div class="case-block reveal">
+        <h2><span class="no">01</span>Business Problem &amp; Objectives</h2>
+        <p>The hotel currently takes bookings by phone, email, and walk-in, recorded manually in a shared spreadsheet. This creates double-bookings during peak season, delays confirming availability to guests, and gives management no reliable view of occupancy or revenue.</p>
+        <ul>
+          <li><strong>Objective 1:</strong> Let guests check real-time availability and book a room directly online.</li>
+          <li><strong>Objective 2:</strong> Eliminate double-bookings by centralising room inventory in one system.</li>
+          <li><strong>Objective 3:</strong> Reduce dependency on phone/email bookings and increase direct-booking revenue share.</li>
+          <li><strong>Objective 4:</strong> Give management a live view of occupancy, revenue, and booking sources.</li>
+        </ul>
+      </div>
+
+      <div class="case-block reveal d1">
+        <h2><span class="no">02</span>As-Is vs To-Be Process</h2>
+        <p><strong>As-Is:</strong> Guest calls or emails → front-desk staff manually checks a spreadsheet → staff confirms verbally or by email → booking recorded after the fact, with no availability lock — the root cause of double-bookings.</p>
+        <p><strong>To-Be:</strong> Guest searches dates online → system checks live inventory → guest selects a room and pays a deposit → system locks the room and sends an automated confirmation → front desk sees the booking instantly, with no manual re-entry.</p>
+      </div>
+
+      <div class="case-block reveal d2">
+        <h2><span class="no">03</span>Functional Requirements</h2>
+        <ul>
+          <li><strong>FR1:</strong> Guests can search room availability by date range, room type, and guest count.</li>
+          <li><strong>FR2:</strong> System prevents two guests from booking the same room for overlapping dates.</li>
+          <li><strong>FR3:</strong> Guests can complete a booking and pay a deposit online via a secure payment gateway.</li>
+          <li><strong>FR4:</strong> System sends an automated email confirmation with a booking reference.</li>
+          <li><strong>FR5:</strong> Admins can view, modify, or cancel any booking from a management dashboard.</li>
+          <li><strong>FR6:</strong> Admins can block out rooms for maintenance so they aren't shown as available.</li>
+        </ul>
+      </div>
+
+      <div class="case-block reveal d3">
+        <h2><span class="no">04</span>Non-Functional Requirements</h2>
+        <table class="case-table">
+          <tr><th>Category</th><th>Requirement</th></tr>
+          <tr><td>Performance</td><td>Availability search results return in under 2 seconds.</td></tr>
+          <tr><td>Security</td><td>Payment data handled via a PCI-compliant gateway; no card data stored locally.</td></tr>
+          <tr><td>Availability</td><td>Booking platform available 99.5% of the time, including outside office hours.</td></tr>
+          <tr><td>Usability</td><td>Booking flow completable on mobile in 4 steps or fewer.</td></tr>
+          <tr><td>Scalability</td><td>Supports peak-season traffic (3× average daily bookings) without degradation.</td></tr>
+        </table>
+      </div>
+
+      <div class="case-block reveal">
+        <h2><span class="no">05</span>User Story &amp; Acceptance Criteria</h2>
+        <p><em>As a guest, I want to book a room online and receive instant confirmation, so that I don't have to call the hotel and risk the room being unavailable.</em></p>
+        <ul>
+          <li><strong>Given</strong> a guest selects valid check-in/check-out dates and an available room, <strong>when</strong> they submit payment, <strong>then</strong> the booking is confirmed and the room is locked for those dates.</li>
+          <li><strong>Given</strong> a room is already booked for the selected dates, <strong>when</strong> a guest tries to book it, <strong>then</strong> the system shows it as unavailable before payment.</li>
+          <li><strong>Given</strong> a booking is confirmed, <strong>when</strong> the transaction completes, <strong>then</strong> the guest receives an email with a booking reference within 1 minute.</li>
+        </ul>
+      </div>
+
+      <div class="case-block reveal d1">
+        <h2><span class="no">06</span>Use Case: Book a Room</h2>
+        <div class="usecase">
+          <div class="row"><b>Actor</b><span>Guest</span></div>
+          <div class="row"><b>Precondition</b><span>Guest has selected check-in/check-out dates and a room type.</span></div>
+          <div class="row"><b>Main flow</b><span>1. Guest searches availability. 2. System returns available rooms. 3. Guest selects a room. 4. Guest enters details and pays deposit. 5. System locks room and confirms booking.</span></div>
+          <div class="row"><b>Alternate flow</b><span>If the room becomes unavailable before payment completes, system re-prompts the guest to choose another room.</span></div>
+          <div class="row"><b>Postcondition</b><span>Room is reserved, inventory updated, and confirmation email sent.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="case-side">
+      <div class="side-card reveal">
+        <h3>Stakeholders</h3>
+        <ul>
+          <li>Guests <b>External</b></li>
+          <li>Front-desk staff <b>Primary user</b></li>
+          <li>Hotel management <b>Sponsor</b></li>
+          <li>Payment provider <b>Third party</b></li>
+        </ul>
+      </div>
+      <div class="side-card reveal d1">
+        <h3>Key Data Entities</h3>
+        <ul>
+          <li>Room <b>type, rate, status</b></li>
+          <li>Booking <b>dates, guest, deposit</b></li>
+          <li>Guest <b>contact details</b></li>
+          <li>Payment <b>amount, status</b></li>
+        </ul>
+      </div>
+      <div class="side-card reveal d2">
+        <h3>Success Metrics</h3>
+        <ul>
+          <li>Double-bookings <b>→ 0</b></li>
+          <li>Direct-booking share <b>↑</b></li>
+          <li>Online conversion rate <b>↑</b></li>
+          <li>Booking confirmation time <b>&lt; 1 min</b></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap">
+    <div class="case-cta reveal">
+      <div>
+        <h3>Want to see more BA work?</h3>
+        <p>Explore the other case studies and projects on the main portfolio.</p>
+      </div>
+      <a href="index.html#work" class="btn btn-primary">Back to case studies
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="index.html#top" class="brand"><span class="dot" style="box-shadow:0 0 0 4px rgba(16,183,166,.25)"></span>Gihansa Buwanayake</a>
+    <div class="fsoc">
+      <a href="https://www.linkedin.com/in/gihansa-senukie/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8h4.52v14H.24V8zm7.5 0h4.34v1.9h.06c.6-1.14 2.08-2.34 4.28-2.34 4.58 0 5.42 3 5.42 6.9V22h-4.52v-6.6c0-1.57-.03-3.6-2.2-3.6-2.2 0-2.54 1.72-2.54 3.49V22H7.74V8z"/></svg></a>
+      <a href="https://github.com/ghsenu" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58v-2.03c-3.34.72-4.04-1.61-4.04-1.61-.55-1.38-1.34-1.75-1.34-1.75-1.09-.75.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.13-.31-.54-1.53.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 016 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.87.12 3.18.77.84 1.23 1.91 1.23 3.23 0 4.63-2.81 5.65-5.49 5.95.43.37.82 1.1.82 2.22v3.29c0 .32.22.7.83.58A12 12 0 0024 12.5C24 5.87 18.63.5 12 .5z"/></svg></a>
+      <a href="mailto:gihansa.work@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7L22 6"/></svg></a>
+    </div>
+    <p class="foot-note">© <span id="yr"></span> Gihansa Buwanayake · Built with care.</p>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 19V5M12 5l-6 6M12 5l6 6"/></svg>
+</button>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  const nav = document.getElementById('nav');
+  addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40));
+
+  const burger = document.getElementById('burger'), links = document.getElementById('navlinks');
+  burger.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: .18 });
+  document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
+
+  const bar = document.getElementById('progress');
+  const setProgress = () => {
+    const h = document.documentElement;
+    const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight || 1);
+    bar.style.width = (scrolled * 100) + '%';
+  };
+  addEventListener('scroll', setProgress, { passive: true });
+  addEventListener('resize', setProgress);
+  setProgress();
+
+  const toTop = document.getElementById('toTop');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  addEventListener('scroll', () => toTop.classList.toggle('show', scrollY > 600), { passive: true });
+  toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }));
+</script>
+</body>
+</html>
