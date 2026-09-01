@@ -384,7 +384,7 @@ footer a:hover{color:var(--teal)}
 .hero:hover .cursor-glow{opacity:1}
 
 /* section heading underline draw-in */
-.sec-head h2{position:relative;display:inline-block}
+.sec-head h2{position:relative;display:block;width:fit-content}
 .sec-head h2::after{content:"";position:absolute;left:0;bottom:-6px;height:3px;width:100%;
   background:linear-gradient(90deg,var(--teal),var(--coral));border-radius:3px;
   transform:scaleX(0);transform-origin:left;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
