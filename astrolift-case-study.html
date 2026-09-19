@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AstroLift Gym Management — BA Case Study · Gihansa Buwanayake</title>
+<meta name="description" content="Business analysis case study covering requirements, processes, user stories, use cases, KPIs, and the technology stack for AstroLift gym management." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230C1E38'/><text x='50' y='68' font-size='54' text-anchor='middle' fill='%2310B7A6' font-family='monospace' font-weight='700'>G</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<nav class="nav" id="nav">
+  <a href="index.html#top" class="brand"><span class="dot"></span>Gihansa<span style="color:var(--teal-dk)">.</span></a>
+  <div class="navlinks" id="navlinks"><a href="index.html#about">About</a><a href="index.html#skills">Skills</a><a href="index.html#services">What I Do</a><a href="index.html#work">Case Studies</a><a href="index.html#contact" class="nav-cta">Let's talk</a></div>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<header class="hero case-hero dark" id="top">
+  <div class="wrap">
+    <a href="index.html#work" class="back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>Back to case studies</a>
+    <span class="eyebrow reveal in">Business Analysis · Product Case Study</span>
+    <h1 class="reveal in d1">AstroLift Gym Management</h1>
+    <p class="lead reveal in d2">A full-stack platform that replaces disconnected membership, payment, attendance, and workout records with one role-based operating system for gym administrators, trainers, and members.</p>
+    <div class="case-meta reveal in d3"><span>Requirements</span><span>Process Mapping</span><span>RBAC</span><span>User Stories</span><span>KPIs</span><span>Tech Stack</span></div>
+  </div>
+</header>
+
+<section class="section case-body">
+  <div class="wrap case-grid">
+    <div>
+      <div class="case-block reveal">
+        <h2><span class="no">01</span>Business Problem &amp; Objectives</h2>
+        <p>Gym teams commonly track members, renewals, attendance, payments, and workout plans in separate spreadsheets or messages. Staff repeat data entry, overdue memberships are hard to spot, trainers lack a shared view of member plans, and management cannot see reliable operational performance.</p>
+        <ul>
+          <li><strong>Objective 1:</strong> Create one source of truth for memberships, payments, workouts, and attendance.</li>
+          <li><strong>Objective 2:</strong> Match system access to admin, trainer, and member responsibilities.</li>
+          <li><strong>Objective 3:</strong> Reduce repetitive administration and make expiring or overdue memberships visible.</li>
+          <li><strong>Objective 4:</strong> Give management timely KPIs for retention, revenue, and facility usage.</li>
+        </ul>
+      </div>
+      <div class="case-block reveal d1">
+        <h2><span class="no">02</span>As-Is vs To-Be Process</h2>
+        <p><strong>As-Is:</strong> Staff registers a member on paper or a spreadsheet → payment is recorded separately → attendance is marked manually → trainers share plans through messages → management combines records later for reporting.</p>
+        <p><strong>To-Be:</strong> Admin creates a member profile and activates a plan → payment status updates the membership → attendance is recorded against the same account → trainer assigns and reviews workouts → role-based dashboards show current actions and KPIs.</p>
+      </div>
+      <div class="case-block reveal d2">
+        <h2><span class="no">03</span>Functional Requirements</h2>
+        <ul>
+          <li><strong>FR1:</strong> The system authenticates users and displays features according to admin, trainer, or member role.</li>
+          <li><strong>FR2:</strong> Admins can create member records, assign plans, and manage activation, expiry, renewal, or suspension.</li>
+          <li><strong>FR3:</strong> Staff can record payments and view outstanding or completed payment status.</li>
+          <li><strong>FR4:</strong> Trainers can create and assign workout programmes and review member progress.</li>
+          <li><strong>FR5:</strong> Staff can record attendance and retrieve attendance history by member and date.</li>
+          <li><strong>FR6:</strong> Dashboards summarise active memberships, payment status, attendance, and workout activity.</li>
+        </ul>
+      </div>
+      <div class="case-block reveal d3">
+        <h2><span class="no">04</span>Non-Functional Requirements</h2>
+        <table class="case-table"><tr><th>Category</th><th>Requirement</th></tr><tr><td>Security</td><td>Server-side role checks prevent users from viewing or changing unauthorised records.</td></tr><tr><td>Performance</td><td>Member search and dashboard summaries return in under 2 seconds under normal load.</td></tr><tr><td>Reliability</td><td>Membership, payment, and attendance updates are transactional and do not create partial records.</td></tr><tr><td>Usability</td><td>Frequent front-desk tasks are completable in three primary actions or fewer.</td></tr><tr><td>Maintainability</td><td>Frontend, API, and business rules remain modular and testable.</td></tr></table>
+      </div>
+      <div class="case-block reveal">
+        <h2><span class="no">05</span>User Story &amp; Acceptance Criteria</h2>
+        <p><em>As a gym administrator, I want to renew a member's plan and record payment in one workflow, so that access and financial records remain consistent.</em></p>
+        <ul>
+          <li><strong>Given</strong> an existing member and a valid plan, <strong>when</strong> payment is confirmed, <strong>then</strong> the new membership dates and paid status are saved together.</li>
+          <li><strong>Given</strong> payment fails or is cancelled, <strong>when</strong> the workflow ends, <strong>then</strong> the current membership remains unchanged.</li>
+          <li><strong>Given</strong> a successful renewal, <strong>when</strong> the admin returns to the dashboard, <strong>then</strong> the member no longer appears in the expiring list.</li>
+        </ul>
+      </div>
+      <div class="case-block reveal d1">
+        <h2><span class="no">06</span>Use Case: Record Member Check-In</h2>
+        <div class="usecase"><div class="row"><b>Actor</b><span>Front-desk administrator</span></div><div class="row"><b>Precondition</b><span>The member exists and the administrator is signed in.</span></div><div class="row"><b>Main flow</b><span>1. Search for member. 2. System displays membership status. 3. Staff confirms check-in. 4. System creates a timestamped attendance record. 5. Dashboard totals update.</span></div><div class="row"><b>Alternate flow</b><span>If membership is expired or suspended, the system warns staff and does not silently grant access.</span></div><div class="row"><b>Postcondition</b><span>A traceable attendance record is linked to the member and visible to authorised users.</span></div></div>
+      </div>
+    </div>
+    <aside class="case-side">
+      <div class="side-card reveal"><h3>Stakeholders</h3><ul><li>Gym members <b>Customer</b></li><li>Trainers <b>Primary user</b></li><li>Administrators <b>Primary user</b></li><li>Gym owner <b>Sponsor</b></li></ul></div>
+      <div class="side-card reveal d1"><h3>Key Data Entities</h3><ul><li>User <b>role, status</b></li><li>Membership <b>plan, dates</b></li><li>Payment <b>amount, status</b></li><li>Workout <b>plan, progress</b></li><li>Attendance <b>member, time</b></li></ul></div>
+      <div class="side-card reveal d2"><h3>Success Metrics</h3><ul><li>Renewal processing time <b>↓</b></li><li>Overdue accounts detected <b>↑</b></li><li>Duplicate data entry <b>↓</b></li><li>Attendance visibility <b>Real time</b></li></ul></div>
+      <div class="side-card reveal d3"><h3>Implemented Tech Stack</h3><ul><li>Frontend <b>Next.js</b></li><li>Backend <b>Node.js</b></li><li>API <b>Express</b></li><li>Infrastructure <b>Docker</b></li><li>Testing <b>Mocha / Chai</b></li></ul></div>
+    </aside>
+  </div>
+</section>
+
+<section class="section alt"><div class="wrap"><div class="case-cta reveal"><div><h3>Explore the original project</h3><p>See the product presentation, screens, and engineering details.</p></div><a href="https://bit.ly/4fpbYQF" target="_blank" rel="noopener" class="btn btn-primary">View project<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a></div></div></section>
+<footer><div class="wrap"><a href="index.html#top" class="brand"><span class="dot"></span>Gihansa Buwanayake</a><p class="foot-note">© <span id="yr"></span> Gihansa Buwanayake · Built with care.</p></div></footer>
+<button class="to-top" id="toTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 19V5M12 5l-6 6M12 5l6 6"/></svg></button>
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();const nav=document.getElementById('nav');addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));const burger=document.getElementById('burger'),links=document.getElementById('navlinks');burger.addEventListener('click',()=>links.classList.toggle('open'));links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.18});document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));const bar=document.getElementById('progress'),setProgress=()=>{const h=document.documentElement;bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight||1)*100)+'%'};addEventListener('scroll',setProgress,{passive:true});addEventListener('resize',setProgress);setProgress();const toTop=document.getElementById('toTop'),reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;addEventListener('scroll',()=>toTop.classList.toggle('show',scrollY>600),{passive:true});toTop.addEventListener('click',()=>scrollTo({top:0,behavior:reduce?'auto':'smooth'}));
+</script>
+</body>
+</html>
